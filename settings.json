@@ -1,0 +1,29 @@
+{
+  "workbench.colorTheme": "Dracula",
+  "breadcrumbs.enabled": true,
+  "alignment.surroundSpace": {
+    "colon": [
+      1,
+      1
+    ],
+    "assignment": [
+      1,
+      1
+    ],
+    "arrow": [
+      1,
+      1
+    ],
+    "comment": 2
+  },
+  "alignment.operatorPadding": "left",
+  "search.exclude": {
+    "**/node_modules": false
+  },
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 0,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontLigatures": true
+}

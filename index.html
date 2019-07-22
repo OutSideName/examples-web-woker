@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Service worker</title>
+</head>
+<body>
+    
+    <div id="log"></div>
+
+    <script id="worker1" type="javascript/worker">
+        self.onmessage = function(e){
+            self.postMessage("Msg from worker");
+        }
+    </script>
+
+    <script>
+        function log(msg) {
+            var fragment = document.createDocumentFragment();
+            fragment.appendChild(document.createTextNode(msg));
+            fragment.appendChild(document.createElement('br'));
+        
+            document.querySelector("#log").appendChild(fragment)
+        }
+
+        var blob = new Blob([document.querySelector("#worker1").textContent]);
+
+        var worker = new Worker(window.URL.createObjectURL(blob));
+
+        worker.onmessage = function(e){
+            log("reviced: " + e.data)
+        }
+
+        worker.postMessage('13213213');
+    </script>
+</body>
+</html>
